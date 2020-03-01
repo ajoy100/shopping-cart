@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item">
+                  <div class="row" >
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button  id ="mobileMinus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input  id = "inputOne" type="text" class="form-control text-center" value="1">
+                           <button id ="mobilPlus" class="btn btn-default"><i class="fas fa-plus" ></i></button>
+                        </div>
+                        <h5>$<span id ="mobilePrice">1219</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="caseMinus" class="btn btn-default"><i class="fas fa-minus" ></i></button>
+                           <input id="inputTwo" type="text" class="form-control text-center" value="1">
+                           <button id ="casePlus" class="btn btn-default"><i class="fas fa-plus" ></i></button>
+
+                        </div>
+                        <h5>$<span id="casePrice">59</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                        
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$ <span id ="subTotal">1278</span> </h5>
+                        <h5><span id = "tax"> 00</span></h5>
+                        <h5> $<span id ="Total">1278</span></h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!--JS Code-->
+   <script>
+
+       //Mobile
+         const mobilPlus = document.getElementById("mobilPlus");
+         mobilPlus.addEventListener("click", function(){
+         const inputOne = document.getElementById("inputOne").value++;
+         const mobilePrice = document.getElementById("mobilePrice").innerText;
+         const itemTwo = parseFloat(mobilePrice);
+         const addItemTwo = itemTwo + 1219;
+
+         document.getElementById("mobilePrice").innerText = addItemTwo;
+
+         const subTotal = document.getElementById("subTotal").innerText;
+         const totalOne = parseFloat(subTotal);
+         const totalValue2 = totalOne +  1219;
+
+         document.getElementById("subTotal").innerText = totalValue2;
+         document.getElementById("Total").innerText = totalValue2;
+         })
+
+         const mobileMinus = document.getElementById("mobileMinus");
+         mobileMinus.addEventListener("click", function(){
+         const inputOne = document.getElementById("inputOne")
+         if(inputOne.value <=0 && minusValue2 <=0 ){
+               inputOne.value = 0;
+               minusValue2 = 0;
+         }
+         else{
+            inputOne.value--;
+         };
+         const mobilePrice = document.getElementById("mobilePrice").innerText;
+         const itemTwo = parseFloat(mobilePrice);
+         const minusItemTwo = itemTwo - 1219;
+
+         document.getElementById("mobilePrice").innerText = minusItemTwo;
+
+         const subTotal = document.getElementById("subTotal").innerText;
+         const totalOne = parseFloat(subTotal);
+         const minusValue2 = totalOne -  1219;
+
+         document.getElementById("subTotal").innerText = minusValue2;
+         document.getElementById("Total").innerText = minusValue2;
+
+         })
+
+
+      // Case
+         const addItem = document.getElementById("casePlus");
+         addItem.addEventListener("click", function(){
+         const inputTwo = document.getElementById("inputTwo").value++;
+         const casePrice = document.getElementById("casePrice").innerText;
+         const itemOne = parseFloat(casePrice);
+         const addItemOne = itemOne + 59;
+
+       
+         document.getElementById("casePrice").innerText = addItemOne;
+
+         const subTotal = document.getElementById("subTotal").innerText;
+         const totalOne = parseFloat(subTotal);
+         const totalValue = totalOne +  59;
+
+         document.getElementById("subTotal").innerText = totalValue;
+         document.getElementById("Total").innerText = totalValue;
+
+         })  
+         const mninusItem = document.getElementById("caseMinus");
+         mninusItem.addEventListener("click", function(){
+            const inputTwo = document.getElementById("inputTwo")
+            if(inputTwo.value <=0 && minusValue <=0 ){
+            inputTwo.value = 0;
+            minusValue = 0;
+         }
+         else{
+            inputTwo.value--;
+         };
+            const casePrice = document.getElementById("casePrice").innerText;
+            const itemOne =  parseFloat(casePrice);
+            const minusItemOne = casePrice - 59 ;
+            
+
+            document.getElementById("casePrice").innerText = minusItemOne;
+
+            const subTotal = document.getElementById("subTotal").innerText;
+            const totalOne = parseFloat(subTotal);
+            const minusValue = totalOne - 59  ;
+
+            document.getElementById("subTotal").innerText = minusValue;
+            document.getElementById("Total").innerText = minusValue;
+      
+
+         })
+
+    </script>
+
+</body>
+
+</html>
